@@ -1,0 +1,22 @@
+{
+  "name": "lx-express",
+  "version": "1.0.0",
+  "description": "learn express",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Luoxue-xu/lx-express.git"
+  },
+  "author": "luoxue",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Luoxue-xu/lx-express/issues"
+  },
+  "homepage": "https://github.com/Luoxue-xu/lx-express#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}
