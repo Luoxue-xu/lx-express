@@ -1,16 +1,20 @@
 const express = require('express')
 const app = new express()
-const routes = require('./routes')(app)
 
 /**
- * app.get方法，用于指定不同的访问路径所对应的回调函数，这叫做“路由”（routing）
+ * 中间件（middleware）就是处理HTTP请求的函数
+ * @param {*} request HTTP请求
+ * @param {*} response HTTP回应
+ * @param {*} next 调用下一个中间件，回调函数
  */
-app.use('/', (request, response) => {
-    response.send('欢迎来到lx-express')
-})
+const uselessMiddleware = (request, response, next) => {
+    console.log(request.url)
+    next()
+}
 
+app.use('/', uselessMiddleware)
 app.use('/about', (request, response) => {
-    response.send('想了解我，那就快来呀')
+    response.send('about')
 })
 
 app.listen(4000)
