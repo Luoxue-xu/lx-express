@@ -3,21 +3,19 @@ const path = require('path')
 const app = express()
 const user = require('./api/user')
 
-// 设置 port 变量，访问端口
-app.set('port', process.env.PORT || 4000)
-
-// 设置 views 变量，视图存放的位置
-app.set('views', path.join(__dirname, 'views'))
-
-// 配置路由
+// 根目录
 app.get('/', (request, response) => {
-    const body = 'content'
-    response.setHeader('Content-Type', 'text/plain')
-    response.setHeader('Content-Length', body.length)
-    response.end(body)
+    response.sendFile(__dirname + '/views/index.html')
 })
 
-app.get('/api/user', user)
+// 关于我们
+app.get('/about', (request, response) => {
+    response.sendFile(__dirname + '/views/about.html')
+})
 
-app.use(express.static(path.join(__dirname, 'public')))
-app.listen(app.get('port'))
+// 文章
+app.get('/article', (request, response) => {
+    response.sendFile(__dirname + '/views/article.html')
+})
+
+app.listen(4000)
